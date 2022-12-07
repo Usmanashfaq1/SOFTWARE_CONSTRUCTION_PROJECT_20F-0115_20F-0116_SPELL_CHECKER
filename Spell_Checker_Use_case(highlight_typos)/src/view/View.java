@@ -29,8 +29,7 @@ public class View extends JFrame
 	
 	public static JTextField word_input;
 	public JLabel suggest = new JLabel("word");
-	public JPanel getContentPane() 
-	{
+	public JPanel getContentPane() {
 		return contentPane;
 	}
 
@@ -180,7 +179,18 @@ public class View extends JFrame
 		panel.add(scrollPane);
 		
 		table = new JTable();
-
+//		table.addMouseListener(new MouseAdapter() {
+//			@Override
+//			public void mouseClicked(MouseEvent e)
+//			{
+//				 int index = table.getSelectedRow();
+//				 int val=table.getSelectedColumn();
+//
+//				 DefaultTableModel model = (DefaultTableModel) table.getModel();
+//				 String val1 = (model.getValueAt(index, val).toString());
+//				 System.out.println(val1);
+//			}
+//		});
 		table.setFont(new Font("Arial", Font.PLAIN, 18));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {

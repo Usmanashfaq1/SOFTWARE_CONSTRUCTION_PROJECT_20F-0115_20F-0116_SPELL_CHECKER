@@ -85,7 +85,7 @@ public class Model
 				e1.printStackTrace();
 			}
            
-            while(txtfile.hasNextLine())
+            while(txtfile.hasNextLine())//here comparing with whole dictrionary
             {
                String compare = txtfile.nextLine(); //first word first iteration
              //  System.out.println("compare val is : "+ compare);
@@ -105,8 +105,125 @@ public class Model
 	    
 	    }
 	   
+	   //version #1
+	   public static int edit_distance_val(String word1, String word2)
+	   {
+		   
+		   //validation
+		   if((word1 == null || word1.length() == 0) && (word2 == null || word2.length() == 0))
+		   {
+			   return 0;
+		   }
+		   // string lengths 
+			int row1 = word1.length(); 
+			int col2 = word2.length();
+		 
+			// len1+1, len2+1, 
+			// crearting an 2d array(table) for value according to words sizes
+			int[][] arr = new int[row1 + 1][col2 + 1];
+		 
+			//intitalizng with int values acc to sizes
+			for (int i = 0; i <= row1; i++) 
+			{
+				
+				//arr[i][0] = i;
+			
+		 
+			for (int j = 0; j <= col2; j++) 
+			{
+				if(j==0)
+				{
+				arr[i][0] = i;
+				}
+				
+				if(i==0)
+				{
+					arr[0][j]=j;
+				}
+			}
+				
+				
+		    }
+			
+			
+			int i=0;
+			while(i<row1)
+			{
+				char w1 = word1.charAt(i);
+				//System.out.println(c1);
+				
+				for (int j = 0; j < col2; j++) 
+				{
+					//getting char at last place of array jth
+					char w2 = word2.charAt(j);
+					//System.out.println(c2);
+					//baseball     zzesball
+		 
+					//if two characters are equal 
+					if (w1 == w2)  // no need to perform actions (same size words, no edit distance?)
+					{
+						//System.out.println("if executed!");
+						//update dp value for +1 length
+						arr[i + 1][j + 1] = arr[i][j]; //skip 
+					} 
+					else //operations forming edit distances!
+					{
+						//System.out.println("last is no same!");
+						//replaement 
+						int replacment_val = arr[i][j] + 1;
+						//insertion
+						int insertion_val = arr[i][j + 1] + 1;   // droping j last and then inserting back in
+						//deletion
+						int deletion_val = arr[i + 1][j] + 1; 
+		 
+						int edit_value;
+						if(replacment_val > insertion_val)
+						{
+							edit_value=insertion_val;
+						}
+						else 
+						{
+							edit_value=replacment_val;
+						}
+						
+						if(!(deletion_val>edit_value))
+						{
+							edit_value=deletion_val;
+//							min=min;
+						}
+//						else
+//						{
+//							
+//						}
+
+						arr[i + 1][j + 1] = edit_value;// returning here
+						//System.out.println("min val is :: "+ min);
+						
+					}
+				}
+				i++;
+				
+			}
+		 
+			
+		 
+			return arr[row1][col2]; // returning edit distance value here
+		}
 	   
-	  
+	   
+	   
+
+	   
+	   
+		
+		
+		
+		
+		
+		
+
+		
+		
 		
 	    
 	    

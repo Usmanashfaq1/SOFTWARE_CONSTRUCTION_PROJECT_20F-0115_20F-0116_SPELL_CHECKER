@@ -32,7 +32,7 @@ public class Controller
 			
 			Scanner write = new Scanner(System.in);
 
-	        System.out.println("enter text for checking :: ");
+	      //  System.out.println("enter text for checking :: ");
 	        String sentence = view.word_input.getText();
 	        view.textArea.setText(sentence);
 	        String[] splitSentence = sentence.split(" "); // spliting it 
@@ -46,20 +46,21 @@ public class Controller
 				txtfile = new Scanner(new File("word.txt")); // reading file here
 				} catch (FileNotFoundException e1) 
 				{
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 	           
 	            while(txtfile.hasNextLine())//here comparing with whole dictrionary
 	            {
 	               String compare = txtfile.nextLine(); //first word first iteration
-	               System.out.println("compare val is : "+ compare);
+	              // System.out.println("compare val is : "+ compare);
 	               
 	            //  String[] compare= compare1.split(" ");// new split logic
 	               
 	                if(compare.equalsIgnoreCase(splitSentence[i])) // start from 1st word to onward
 	                {
 	                	
-	                    System.out.println("index no : "+i+"  "+ splitSentence[i] + " : correct");
+	                   // System.out.println("index no : "+i+"  "+ splitSentence[i] + " : correct");
 	                    exist=true;
 	                    break;
 	                }
@@ -67,25 +68,51 @@ public class Controller
 	            }
 	            if(exist==false)
 	            {
-	               System.out.println(splitSentence[i] + " : incorrect(not found)");
+	              // System.out.println(splitSentence[i] + " : incorrect(not found)");
 	               model.highlight(view.textArea,splitSentence[i] ); //calling here highlight function
-	             
-	               // creating a suggestion list to compare it with words(dictionary)
+	               
+	               // here start recommendation process
 	               List<String> list = new ArrayList<String>();
 	               model.read_txt(list);
 	               List<String> suggestion = new ArrayList<String>();
-	             
+	               int mat_val=2; // edit distance between words for matching possibles matches (with correct word)
+                    
+	               // for each loop 
+	               for (String word: list) 
+	               {
+	               int dist=model.edit_distance_val(splitSentence[i], word);
+	               if(dist<=mat_val)
+	               {
+	               suggestion.add(word);
+	               }
+	               }
+	               //print
+
+	               // spell checker here
+
+
+	               if(suggestion.size()>0)
+	               {
+	            	   DefaultTableModel model = (DefaultTableModel)view.table.getModel();
+	               for (String word1: suggestion) 
+	               {
+//	               System.out.println("did you mean?");  
+//	               System.out.println(word1);  
+	               model.addRow( new Object[]{ word1} );
+	               view.suggest.setText(word1);
+	               }
+	               }
 	               
-	               
-	               
+
 	               
 	            }
 	        }
 	        
-		 
+		  
 		});
 		
 
+		//
 		
 	}
 	// main function
@@ -99,12 +126,7 @@ public class Controller
 		Controller c = new Controller(m, v);
 		c.check();
 		
-//		m.read_txt(list);
-//		for(String output:list) 
-//		{
-//			
-//			System.out.println(output); 
-//			}
+
 		
 		
 	}
