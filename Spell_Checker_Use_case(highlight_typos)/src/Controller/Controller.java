@@ -32,7 +32,7 @@ public class Controller
 			
 			Scanner write = new Scanner(System.in);
 
-	      //  System.out.println("enter text for checking :: ");
+	        //System.out.println("enter text for checking :: ");
 	        String sentence = view.word_input.getText();
 	        view.textArea.setText(sentence);
 	        String[] splitSentence = sentence.split(" "); // spliting it 
@@ -53,7 +53,7 @@ public class Controller
 	            while(txtfile.hasNextLine())//here comparing with whole dictrionary
 	            {
 	               String compare = txtfile.nextLine(); //first word first iteration
-	              // System.out.println("compare val is : "+ compare);
+	             //  System.out.println("compare val is : "+ compare);
 	               
 	            //  String[] compare= compare1.split(" ");// new split logic
 	               
@@ -70,7 +70,7 @@ public class Controller
 	            {
 	              // System.out.println(splitSentence[i] + " : incorrect(not found)");
 	               model.highlight(view.textArea,splitSentence[i] ); //calling here highlight function
-	               
+	               model.setwordwrong(splitSentence[i]);//getting wrong word here
 	               // here start recommendation process
 	               List<String> list = new ArrayList<String>();
 	               model.read_txt(list);
@@ -105,13 +105,58 @@ public class Controller
 	               
 
 	               
+	               
+	               
+	               
 	            }
 	        }
 	        
 		  
 		});
 		
+//		view.getBtnNewButton().addActionListener(e ->
+//		{
+		// table mouse click 
+		
+		// here is choosing suggested word and changing wrong word with in text field
+		view.table.addMouseListener(new MouseAdapter() 
+		{
+			@Override
+			public void mouseClicked(MouseEvent e)
+			{
+				 int index = view.table.getSelectedRow();
+				 int val=view.table.getSelectedColumn();
 
+				 DefaultTableModel model1 = (DefaultTableModel) view.table.getModel();
+				 String val1 = (model1.getValueAt(index, val).toString());// correct val
+				 //System.out.println(val1);
+				 
+				 String sentence45 = view.word_input.getText();
+				//
+				 String[] splitSentence1 = sentence45.split(" "); // spliting it 
+				// System.out.println(model.getwordwrong());
+			        for(int i = 0; i < splitSentence1.length; i++)
+			        {
+			        	if(splitSentence1[i].equalsIgnoreCase(model.getwordwrong()))
+			        	{
+			        		// System.out.println("found in list");
+			        		splitSentence1[i]=val1;
+			        	}
+			        	 
+			        	
+			        }
+			        String sen=" ";
+			        for (String word: splitSentence1 ) 
+		               {
+			        	 sen+=" "+word+" ";
+			        	 //System.out.println(word);
+		               }
+				 //replacing and reinstalizaing text field with correct input
+				 
+				 view.word_input.setText(sen);
+			}
+			
+		});
 		//
 		
 	}
@@ -121,6 +166,7 @@ public class Controller
 		// TODO Auto-generated method stub
 		
 		Model m = new Model();
+		
 		View v = new View();
 		v.setVisible(true);//
 		Controller c = new Controller(m, v);

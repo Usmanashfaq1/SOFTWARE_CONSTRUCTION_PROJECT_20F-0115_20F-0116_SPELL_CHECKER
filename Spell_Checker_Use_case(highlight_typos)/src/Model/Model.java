@@ -214,12 +214,18 @@ public class Model
 	   
 
 	   
-	   
 		
 		
 		
 		
-		
+		public	void setwordwrong(String a)
+		{
+			val3=a;
+		}
+		public	String getwordwrong()
+		{
+			return val3;
+		}
 		
 
 		
