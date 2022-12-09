@@ -41,9 +41,29 @@ public class SecondFrame extends JFrame {
 		table = new JTable();
 
 		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Word ID", "Frequency", "Word" })
-
+				{
+				private static final long serialVersionUID = 1L;
+		
+				@Override
+				public boolean isCellEditable(int row, int column) {
+		
+					return column == 2;
+				}
+			}
 		);
+		table.addMouseListener(new MouseAdapter() {
+		@Override
+		public void mousePressed(MouseEvent e) {
+			int index = table.getSelectedRow();
+			TableModel model = table.getModel();
+			int id = Integer.parseInt(model.getValueAt(index, 0).toString());
+			int frequency = Integer.parseInt(model.getValueAt(index, 1).toString());
+			String word = model.getValueAt(index, 2).toString();
 
+			// JOptionPane.showMessageDialog(null, "Id is : " + id + " frequency is : " +
+			// frequency + " word is : " + word);
+		}
+	});
 		scrollPane.setViewportView(table);
 
 		for (TransferObject t : alTO) {
