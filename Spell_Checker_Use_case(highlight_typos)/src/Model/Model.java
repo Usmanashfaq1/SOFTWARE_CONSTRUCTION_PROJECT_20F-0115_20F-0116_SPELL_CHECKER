@@ -22,12 +22,15 @@ import javax.swing.text.Document;
 import javax.swing.text.Highlighter;
 import javax.swing.text.JTextComponent;
 
+//
+import DataBaseLayer.DataBaseLayer;
+
 
 
 public class Model 
 {
 	public String val3;
-	private Statement stmt;
+	
 	// setting color here
 	 // default highlighter instance
    Highlighter.HighlightPainter myHighlightPainter = new MyHighlightPainter(Color.CYAN);// color
@@ -105,7 +108,7 @@ public class Model
 	    
 	    }
 	   
-	   //version #1
+	   //edit distance function 
 	   public static int edit_distance_val(String word1, String word2)
 	   {
 		   
@@ -214,10 +217,15 @@ public class Model
 	   
 
 	   
+	   public void database()
+	   {
+		   DataBaseLayer obj=new DataBaseLayer();
+		   obj.connection();
+		   obj.txtfilegenerate();
+	   }
 		
 		
-		
-		
+	 //getting wrong word from input word textfield
 		public	void setwordwrong(String a)
 		{
 			val3=a;

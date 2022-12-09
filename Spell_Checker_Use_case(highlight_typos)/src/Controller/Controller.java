@@ -14,6 +14,7 @@ import Model.Model;
 import view.View;
 
 
+
 public class Controller
 {
 	
@@ -32,7 +33,7 @@ public class Controller
 			
 			Scanner write = new Scanner(System.in);
 
-	        //System.out.println("enter text for checking :: ");
+	      //  System.out.println("enter text for checking :: ");
 	        String sentence = view.word_input.getText();
 	        view.textArea.setText(sentence);
 	        String[] splitSentence = sentence.split(" "); // spliting it 
@@ -53,14 +54,14 @@ public class Controller
 	            while(txtfile.hasNextLine())//here comparing with whole dictrionary
 	            {
 	               String compare = txtfile.nextLine(); //first word first iteration
-	             //  System.out.println("compare val is : "+ compare);
+	              // System.out.println("compare val is : "+ compare);
 	               
 	            //  String[] compare= compare1.split(" ");// new split logic
 	               
 	                if(compare.equalsIgnoreCase(splitSentence[i])) // start from 1st word to onward
 	                {
 	                	
-	                   // System.out.println("index no : "+i+"  "+ splitSentence[i] + " : correct");
+	                  //  System.out.println("index no : "+i+"  "+ splitSentence[i] + " : correct");
 	                    exist=true;
 	                    break;
 	                }
@@ -68,7 +69,7 @@ public class Controller
 	            }
 	            if(exist==false)
 	            {
-	              // System.out.println(splitSentence[i] + " : incorrect(not found)");
+	               //System.out.println(splitSentence[i] + " : incorrect(not found)");
 	               model.highlight(view.textArea,splitSentence[i] ); //calling here highlight function
 	               model.setwordwrong(splitSentence[i]);//getting wrong word here
 	               // here start recommendation process
@@ -96,8 +97,8 @@ public class Controller
 	            	   DefaultTableModel model = (DefaultTableModel)view.table.getModel();
 	               for (String word1: suggestion) 
 	               {
-//	               System.out.println("did you mean?");  
-//	               System.out.println(word1);  
+	              // System.out.println("did you mean?");  
+	              // System.out.println(word1);  
 	               model.addRow( new Object[]{ word1} );
 	               view.suggest.setText(word1);
 	               }
@@ -111,14 +112,15 @@ public class Controller
 	            }
 	        }
 	        
-		  
+		  // end
+		  //
+			
 		});
 		
 //		view.getBtnNewButton().addActionListener(e ->
 //		{
 		// table mouse click 
-		
-		// here is choosing suggested word and changing wrong word with in text field
+		//here this is where i get word after clicking on it and replace it with incorrect word in textfield
 		view.table.addMouseListener(new MouseAdapter() 
 		{
 			@Override
@@ -129,7 +131,7 @@ public class Controller
 
 				 DefaultTableModel model1 = (DefaultTableModel) view.table.getModel();
 				 String val1 = (model1.getValueAt(index, val).toString());// correct val
-				 //System.out.println(val1);
+				// System.out.println(val1);
 				 
 				 String sentence45 = view.word_input.getText();
 				//
@@ -139,7 +141,7 @@ public class Controller
 			        {
 			        	if(splitSentence1[i].equalsIgnoreCase(model.getwordwrong()))
 			        	{
-			        		// System.out.println("found in list");
+			        		 //System.out.println("found in list");
 			        		splitSentence1[i]=val1;
 			        	}
 			        	 
@@ -149,7 +151,7 @@ public class Controller
 			        for (String word: splitSentence1 ) 
 		               {
 			        	 sen+=" "+word+" ";
-			        	 //System.out.println(word);
+			        	 System.out.println(word);
 		               }
 				 //replacing and reinstalizaing text field with correct input
 				 
@@ -162,13 +164,14 @@ public class Controller
 	}
 	// main function
 	//start
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		// TODO Auto-generated method stub
 		
 		Model m = new Model();
-		
+		m.database();
 		View v = new View();
-		v.setVisible(true);//
+		v.setVisible(true);
 		Controller c = new Controller(m, v);
 		c.check();
 		
