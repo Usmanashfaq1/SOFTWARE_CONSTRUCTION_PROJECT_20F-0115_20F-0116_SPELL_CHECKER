@@ -11,40 +11,37 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
-import org.w3c.dom.Text;
-
 import java.awt.Color;
 import javax.swing.JScrollPane;
 import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
-import java.awt.TextField;
 
 public class SecondFrame extends JFrame implements Facade {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
+
 	public JTable getTable() {
 		return table;
 	}
 
 	private JTextField textField;
+
 	public JTextField gettTextField() {
 		return textField;
 	}
 
-	private int indexRowSelected;
+	private int indexRowSelected = -1;
 
 	public int getIndexRowSelected() {
 		return indexRowSelected;
 	}
-	
 
 	public void setIndexRowSelected(int indexRowSelected) {
 		this.indexRowSelected = indexRowSelected;
@@ -64,10 +61,11 @@ public class SecondFrame extends JFrame implements Facade {
 	public JButton getBtnNewButton() {
 		return btnNewButton;
 	}
-	public TableModel getTableModel()
-	{
+
+	public TableModel getTableModel() {
 		return table.getModel();
 	}
+
 	public SecondFrame(ArrayList<TransferObject> alTO) {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -128,13 +126,11 @@ public class SecondFrame extends JFrame implements Facade {
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnNewButton_1.setBounds(143, 37, 85, 21);
 		contentPane.add(btnNewButton_1);
-
 		for (TransferObject t : alTO) {
 
 			DefaultTableModel model = (DefaultTableModel) table.getModel();
 			model.addRow(new Object[] { t.getWordId(), t.getFrequency(), t.getWord() });
 		}
-
 	}
 
 //	@Override

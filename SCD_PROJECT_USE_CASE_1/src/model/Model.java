@@ -40,7 +40,7 @@ public class Model {
 	 */
 	public void openDirectory(String path) {
 
-     	d.sqlConnection();
+		d.sqlConnection();
 //		File directoryPath = new File(path);
 //		File filesList[] = directoryPath.listFiles();
 //		//int i = 0;
@@ -52,16 +52,37 @@ public class Model {
 ////				break;
 //		}
 //		maintainTableIdWithFile();
-		//d.getWordForViewingInTable();// sending the the stored object of to the Transfer object to Controller
+		// d.getWordForViewingInTable();// sending the the stored object of to the
+		// Transfer object to Controller
 		// and then from controller send it to View
-     	getListOfWords();
+		getListOfWords();
 		System.out.println("compeleted");
 	}
-	public ArrayList<TransferObject> getListOfWords()
-	{
+
+	public ArrayList<TransferObject> getListOfWords() {
 		return d.getWordForViewingInTable();
 	}
 
+	public void getValueofUpdatedWord(TransferObject obj) {
+		d.sqlConnection();
+		d.updateWord(obj.getWordId(), obj.getWord());
+
+	}
+	public boolean checkWordExistsInDb(String word)
+	{
+		for(TransferObject t : getListOfWords())
+		{
+			if (word.equals(t.getWord()))
+			{
+				return true;
+			}
+		}
+		return false;
+		
+	}
+	public void deleteWordIdForDb(TransferObject obj) {
+		d.deleteWord(obj.getWordId());
+	}
 
 	/**
 	 * 
@@ -152,7 +173,6 @@ public class Model {
 		return true;
 	}
 
-	
 	public void maintainTableIdWithFile() {
 		String[] helper = null;
 		for (String s1 : d.maintainWordIDWithFile()) {
@@ -185,11 +205,10 @@ public class Model {
 					obj.setId(wordId);
 					obj.setWord(singleWord);
 					in.add(obj);
-					
+
 				}
 				WordFrequency w = new WordFrequency(singleWord);
-				if(checkFrequency(wf , singleWord)== true)
-				{
+				if (checkFrequency(wf, singleWord) == true) {
 					wf.add(w);
 				}
 
@@ -271,7 +290,6 @@ class Int {
 	public void setParentId(int parentId) {
 		this.parentId = parentId;
 	}
-
 
 	private int id;
 

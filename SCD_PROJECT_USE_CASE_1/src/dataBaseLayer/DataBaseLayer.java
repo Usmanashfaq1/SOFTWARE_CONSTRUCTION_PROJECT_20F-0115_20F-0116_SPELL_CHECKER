@@ -127,5 +127,28 @@ public class DataBaseLayer {
 			System.out.println("Unable to insert in ID table for word ID of dataBase Project_of_scd in Sql");
 		}
 	}
+	
+	public void updateWord(int id , String updatedWord)
+	{
+		try {
+			System.out.println("id : " + id + " Updated word : " + updatedWord);
+			state.executeUpdate("update wordtable set word =  '" + updatedWord + "'  where wid = '" + id + "';");
+
+		} catch (Exception e) 
+			{
+			System.out.println("Unable to Update in word table of dataBase Project_of_scd in Sql");
+		}
+	}
+	
+	public void deleteWord(int id)
+	{
+		try {
+			state.executeUpdate("Delete from wordtable where wid = '" + id + "';");
+
+		} catch (Exception e) {
+			System.out.println("Unable to delete in word table of dataBase Project_of_scd in Sql");
+		}
+	}
+
 
 }
