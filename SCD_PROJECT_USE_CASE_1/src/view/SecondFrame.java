@@ -21,7 +21,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
-public class SecondFrame extends JFrame implements Facade {
+public class SecondFrame extends JFrame{
 
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;

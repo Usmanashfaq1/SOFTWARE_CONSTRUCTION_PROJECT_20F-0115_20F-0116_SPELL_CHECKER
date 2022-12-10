@@ -13,27 +13,8 @@ import java.util.ArrayList;
  *
  */
 public class DataBaseLayer {
-	private ArrayList<TransferObject> tO = new ArrayList<TransferObject>();
 	private Statement state;
 	private ArrayList<String> alf = new ArrayList<String>();
-
-	/**
-	 * 
-	 * @return
-	 */
-//	public boolean sqlConnection() {
-//
-//		try {
-//			Class.forName("com.mysql.cj.jdbc.Driver");
-//			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project_of_scd", "root", "");
-//			state = con.createStatement();
-//			return true;
-//		} catch (Exception e) {
-//
-//			System.out.println("Connection Unable to be Established with Sql");
-//		}
-//		return false;
-//	}
 
 	/**
 	 * 
@@ -69,6 +50,7 @@ public class DataBaseLayer {
 	 * @return
 	 */
 	public ArrayList<TransferObject> getWordForViewingInTable() {
+		ArrayList<TransferObject> tO = new ArrayList<TransferObject>();
 		Connection con = Singleton.SqlConnection();
 		try {
 			state = con.createStatement();
@@ -90,15 +72,7 @@ public class DataBaseLayer {
 		} catch (SQLException e) {
 			System.out.println("SQL Query Exception Caught");
 		}
-		int i =0;
-		for(TransferObject t : tO)
-		{
-			System.out.println(" " + t.getWord());
-			i++;
-			if (i ==7)
-				break;
-		}
-		return tO;
+				return tO;
 	}
 
 	public ArrayList<String> maintainWordIDWithFile() {
@@ -178,7 +152,6 @@ public class DataBaseLayer {
 			e1.printStackTrace();
 		}
 		try {
-			System.out.println("id : " + id + " Updated word : " + updatedWord);
 			state.executeUpdate("update wordtable set word =  '" + updatedWord + "'  where wid = '" + id + "';");
 
 		} catch (Exception e) 
@@ -198,7 +171,6 @@ public class DataBaseLayer {
 		}
 		try {
 			state.executeUpdate("Delete from wordtable where wid = '" + id + "';");
-
 		} catch (Exception e) {
 			System.out.println("Unable to delete in word table of dataBase Project_of_scd in Sql");
 		}

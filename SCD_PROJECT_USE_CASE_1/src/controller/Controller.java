@@ -53,7 +53,7 @@ public class Controller {
 			}
 		});
 	}
-	public void helpMe()
+	public void actionListenerToSeconfFrame()
 	{
 		SecondFrame sf = new SecondFrame();
 		sf.setTableData(model.getListOfWords());
@@ -70,6 +70,7 @@ public class Controller {
 		});
 		sf.setIndexRowSelected(-1);
 		sf.getBtnNewButton().addActionListener(e -> {
+			
 			sf.getTableModel();
 			if (sf.getIndexRowSelected() == -1 || (sf.gettTextField().getText().equals(""))){
 				JOptionPane.showMessageDialog(null, "جناب ٹیبل سے لفظ منتخب کریں۔");
@@ -79,7 +80,6 @@ public class Controller {
 			else
 			{
 			int id = Integer.parseInt(sf.getTableModel().getValueAt(sf.getIndexRowSelected(), 0).toString());
-			int frequency = Integer.parseInt(sf.getTableModel().getValueAt(sf.getIndexRowSelected(), 1).toString());
 			if (!(sf.gettTextField().getText().equals(""))) {
 
 				String word = sf.getTextField();
@@ -87,12 +87,15 @@ public class Controller {
 				word = word.substring(0, i);
 				obj.setWordId(id);
 				obj.setWord(word);
-				System.out.println(
-						"Updated Id is : " + id + " frequency is : " + frequency + " word is : " + obj.getWord());
 				model.getValueofUpdatedWord(obj);
 				sf.gettTextField().setText("");
 				sf.setTableData(model.getListOfWords());
-			} else {
+				
+			}else if((sf.getTextField().contentEquals("(?U)[\\\\W_]+"))) 
+			{
+				JOptionPane.showMessageDialog(null, "جناب برائے مہربانی صرف اردو الفاظ درج کریں۔");
+			}
+			else {
 				JOptionPane.showMessageDialog(null, "براہ کرم پہلے ایک لفظ کا انتخاب کریں");
 			}
 			}
@@ -113,9 +116,9 @@ public class Controller {
 				System.out.println("Deleting Id is : " + obj.getWordId());
 				model.deleteWordIdForDb(obj);
 				sf.gettTextField().setText("");
-				//sf.getTable().remove(sf.getIndexRowSelected());
 				sf.setTableData(model.getListOfWords());
-			} else {
+			}
+			else {
 				JOptionPane.showMessageDialog(null, "براہ کرم پہلے ایک لفظ کا انتخاب کریں");
 			}
 			}
@@ -126,7 +129,7 @@ public class Controller {
 	public void start2Execution(String path) {
 		model.openDirectory(path);
 		view.dispose();
-		helpMe();
+		actionListenerToSeconfFrame();
 	}	
 
 }
