@@ -219,9 +219,12 @@ public class Model
 	   
 	   public void database()
 	   {
+		   
 		   DataBaseLayer obj=new DataBaseLayer();
-		   obj.connection();
+		  // Connection abc=new Connection();
+		  
 		   obj.txtfilegenerate();
+		   
 	   }
 		
 		

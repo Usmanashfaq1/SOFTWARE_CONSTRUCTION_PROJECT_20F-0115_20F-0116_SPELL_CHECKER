@@ -18,34 +18,41 @@ import java.sql.Statement;
 public class DataBaseLayer 
 {
 	private Statement stmt;
-	//
-	public boolean connection()
-	{
-		
-		try 
-		{
-			Class.forName("com.mysql.jdbc.Driver");  
-			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");  
-			
-			 stmt=con.createStatement();  
-			System.out.println("connected");
-			
-						 
-			return true;
-			
-			 
-			
-	    }
-		catch (Exception e) 
-		{
-			System.out.println("Connection Unable to be Established with Sq l");
-	    }
-			return false;
-	}
-	//
+	
+//	public boolean connection()
+//	{
+//		
+//		try 
+//		{
+//			Class.forName("com.mysql.jdbc.Driver");  
+//			Connection con=DriverManager.getConnection("jdbc:mysql://localhost:3306/spell_checker","root","");  
+//			
+//			 stmt=con.createStatement();  
+//			System.out.println("connected");
+//			
+//						 
+//			return true;
+//			
+//			 
+//			
+//	    }
+//		catch (Exception e) 
+//		{
+//			System.out.println("Connection Unable to be Established with Sq l");
+//	    }
+//			return false;
+//	}
+	
 	public void txtfilegenerate()
 	{
-		
+		Connection con = singeltonpattern.SqlConnection();
+		try {
+			stmt = con.createStatement();
+		} catch (SQLException e1) 
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		//
 		try {
