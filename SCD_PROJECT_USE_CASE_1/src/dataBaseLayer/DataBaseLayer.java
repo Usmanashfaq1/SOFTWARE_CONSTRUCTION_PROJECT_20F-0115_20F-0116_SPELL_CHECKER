@@ -2,7 +2,6 @@ package dataBaseLayer;
 
 import tranferObjects.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -22,19 +21,19 @@ public class DataBaseLayer {
 	 * 
 	 * @return
 	 */
-	public boolean sqlConnection() {
-
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project_of_scd", "root", "");
-			state = con.createStatement();
-			return true;
-		} catch (Exception e) {
-
-			System.out.println("Connection Unable to be Established with Sql");
-		}
-		return false;
-	}
+//	public boolean sqlConnection() {
+//
+//		try {
+//			Class.forName("com.mysql.cj.jdbc.Driver");
+//			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/project_of_scd", "root", "");
+//			state = con.createStatement();
+//			return true;
+//		} catch (Exception e) {
+//
+//			System.out.println("Connection Unable to be Established with Sql");
+//		}
+//		return false;
+//	}
 
 	/**
 	 * 
@@ -44,7 +43,13 @@ public class DataBaseLayer {
 	 * @return
 	 */
 	public boolean insertIntoDataBase(String t, String n, String p) {
-
+		Connection con = Singleton.SqlConnection();
+		try {
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		if (t != " " && n != " " && p != "") {
 			try {
 
@@ -64,9 +69,15 @@ public class DataBaseLayer {
 	 * @return
 	 */
 	public ArrayList<TransferObject> getWordForViewingInTable() {
-		;
+		Connection con = Singleton.SqlConnection();
 		try {
-
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			System.out.println("db");
 			ResultSet st = state.executeQuery("select * from `wordtable` order by frequency ");
 
 			while (st.next()) {
@@ -79,10 +90,25 @@ public class DataBaseLayer {
 		} catch (SQLException e) {
 			System.out.println("SQL Query Exception Caught");
 		}
+		int i =0;
+		for(TransferObject t : tO)
+		{
+			System.out.println(" " + t.getWord());
+			i++;
+			if (i ==7)
+				break;
+		}
 		return tO;
 	}
 
 	public ArrayList<String> maintainWordIDWithFile() {
+		Connection con = Singleton.SqlConnection();
+		try {
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		String var = "";
 		try {
 
@@ -106,6 +132,13 @@ public class DataBaseLayer {
 	 * @return
 	 */
 	public boolean insertWordInDataBase(String w, int f) {
+		Connection con = Singleton.SqlConnection();
+		try {
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		if (f != 0) {
 			try {
@@ -119,6 +152,13 @@ public class DataBaseLayer {
 	}
 
 	public void insertWordIdInTable(int mid, int wid) {
+		Connection con = Singleton.SqlConnection();
+		try {
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 
 		try {
 			state.executeUpdate("insert into idtable ( mid, wid ) VALUES( '" + mid + "', '" + wid + "');");
@@ -130,6 +170,13 @@ public class DataBaseLayer {
 	
 	public void updateWord(int id , String updatedWord)
 	{
+		Connection con = Singleton.SqlConnection();
+		try {
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			System.out.println("id : " + id + " Updated word : " + updatedWord);
 			state.executeUpdate("update wordtable set word =  '" + updatedWord + "'  where wid = '" + id + "';");
@@ -142,6 +189,13 @@ public class DataBaseLayer {
 	
 	public void deleteWord(int id)
 	{
+		Connection con = Singleton.SqlConnection();
+		try {
+			state = con.createStatement();
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		try {
 			state.executeUpdate("Delete from wordtable where wid = '" + id + "';");
 

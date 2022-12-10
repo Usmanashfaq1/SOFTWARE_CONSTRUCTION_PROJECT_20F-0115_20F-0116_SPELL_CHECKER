@@ -5,6 +5,7 @@ import tranferObjects.TransferObject;
 
 import java.io.File;
 import java.io.IOException;
+import java.sql.Connection;
 import java.util.ArrayList;
 
 import javax.xml.XMLConstants;
@@ -39,8 +40,6 @@ public class Model {
 	 * @param path
 	 */
 	public void openDirectory(String path) {
-
-		d.sqlConnection();
 //		File directoryPath = new File(path);
 //		File filesList[] = directoryPath.listFiles();
 //		//int i = 0;
@@ -55,7 +54,7 @@ public class Model {
 		// d.getWordForViewingInTable();// sending the the stored object of to the
 		// Transfer object to Controller
 		// and then from controller send it to View
-		getListOfWords();
+		//getListOfWords();
 		System.out.println("compeleted");
 	}
 
@@ -64,7 +63,6 @@ public class Model {
 	}
 
 	public void getValueofUpdatedWord(TransferObject obj) {
-		d.sqlConnection();
 		d.updateWord(obj.getWordId(), obj.getWord());
 
 	}

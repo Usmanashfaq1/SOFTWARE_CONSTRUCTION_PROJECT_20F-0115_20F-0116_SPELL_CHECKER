@@ -10,13 +10,13 @@ class ProjectTestCases {
 	private DataBaseLayer d = new DataBaseLayer();
 	private Model m = new Model();
 
-	@Test
-	/**
-	 * it will return true because the connection is established correctly
-	 */
-	void testSqlConnectionExsists() {
-		Assertions.assertEquals(true , d.sqlConnection());
-	}
+//	@Test
+//	/**
+//	 * it will return true because the connection is established correctly
+//	 */
+//	void testSqlConnectionExsists() {
+//		Assertions.assertEquals(true , d.sqlConnection());
+//	}
 	
 	@Test
 	/**

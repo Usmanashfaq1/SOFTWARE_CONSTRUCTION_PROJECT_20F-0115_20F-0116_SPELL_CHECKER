@@ -53,11 +53,10 @@ public class Controller {
 			}
 		});
 	}
-
-	public void start2Execution(String path) {
-		model.openDirectory(path);
-		view.dispose();
-		SecondFrame sf = new SecondFrame(model.getListOfWords());
+	public void helpMe()
+	{
+		SecondFrame sf = new SecondFrame();
+		sf.setTableData(model.getListOfWords());
 		sf.setVisible(true);
 		sf.gettTextField().setText("");
 		sf.getTable().addMouseListener(new MouseAdapter() {
@@ -65,21 +64,20 @@ public class Controller {
 			public void mouseClicked(MouseEvent e) {
 				sf.setIndexRowSelected(sf.getTable().getSelectedRow());
 				TableModel model = sf.getTable().getModel();
-//				int id = Integer.parseInt(model.getValueAt(indexRowSelected, 0).toString());
-//				int frequency = Integer.parseInt(model.getValueAt(indexRowSelected, 1).toString());
 				String word = model.getValueAt(sf.getIndexRowSelected(), 2).toString();
 				sf.gettTextField().setText(word);
-				// System.out.println( "Id is : " + id + " frequency is : " + frequency + " word
-				// is : " + word );//JOptionPane.showMessageDialog
 			}
 		});
+		sf.setIndexRowSelected(-1);
 		sf.getBtnNewButton().addActionListener(e -> {
 			sf.getTableModel();
-			if (sf.getIndexRowSelected() == -1) {
+			if (sf.getIndexRowSelected() == -1 || (sf.gettTextField().getText().equals(""))){
 				JOptionPane.showMessageDialog(null, "جناب ٹیبل سے لفظ منتخب کریں۔");
 				sf.gettTextField().setText("");
-				return;
+				
 			}
+			else
+			{
 			int id = Integer.parseInt(sf.getTableModel().getValueAt(sf.getIndexRowSelected(), 0).toString());
 			int frequency = Integer.parseInt(sf.getTableModel().getValueAt(sf.getIndexRowSelected(), 1).toString());
 			if (!(sf.gettTextField().getText().equals(""))) {
@@ -93,27 +91,42 @@ public class Controller {
 						"Updated Id is : " + id + " frequency is : " + frequency + " word is : " + obj.getWord());
 				model.getValueofUpdatedWord(obj);
 				sf.gettTextField().setText("");
+				sf.setTableData(model.getListOfWords());
 			} else {
 				JOptionPane.showMessageDialog(null, "براہ کرم پہلے ایک لفظ کا انتخاب کریں");
 			}
+			}
 		});
+		sf.setIndexRowSelected(-1);
 		sf.getBtnNewButton_1().addActionListener(e -> {
 			sf.getTableModel();
-			if (sf.getIndexRowSelected() == -1) {
+			if (sf.getIndexRowSelected() == -1 || (sf.gettTextField().getText().equals(""))){
 				JOptionPane.showMessageDialog(null, "جناب ٹیبل سے لفظ منتخب کریں۔");
 				sf.gettTextField().setText("");
-				return;
+				
 			}
+			else
+			{
 			if (!(sf.gettTextField().getText().equals(""))) {
 				int id = Integer.parseInt(sf.getTableModel().getValueAt(sf.getIndexRowSelected(), 0).toString());
 				obj.setWordId(id);
 				System.out.println("Deleting Id is : " + obj.getWordId());
 				model.deleteWordIdForDb(obj);
 				sf.gettTextField().setText("");
+				//sf.getTable().remove(sf.getIndexRowSelected());
+				sf.setTableData(model.getListOfWords());
 			} else {
 				JOptionPane.showMessageDialog(null, "براہ کرم پہلے ایک لفظ کا انتخاب کریں");
 			}
+			}
 		});
+		sf.setIndexRowSelected(-1);
+
 	}
+	public void start2Execution(String path) {
+		model.openDirectory(path);
+		view.dispose();
+		helpMe();
+	}	
 
 }

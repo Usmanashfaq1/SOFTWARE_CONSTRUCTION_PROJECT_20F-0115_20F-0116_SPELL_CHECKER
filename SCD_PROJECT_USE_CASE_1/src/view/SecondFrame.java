@@ -26,7 +26,7 @@ public class SecondFrame extends JFrame implements Facade {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JTable table;
-
+	private JScrollPane scrollPane;
 	public JTable getTable() {
 		return table;
 	}
@@ -65,8 +65,28 @@ public class SecondFrame extends JFrame implements Facade {
 	public TableModel getTableModel() {
 		return table.getModel();
 	}
+	public void setTableData(ArrayList<TransferObject> alTO)
+	{
+		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Word ID", "Frequency", "Word" }) {
+			private static final long serialVersionUID = 1L;
 
-	public SecondFrame(ArrayList<TransferObject> alTO) {
+			@Override
+			public boolean isCellEditable(int row, int column) {
+
+				return false;
+			}
+		});
+		DefaultTableModel model = null;
+		for (TransferObject t : alTO) {
+
+			 model = (DefaultTableModel) table.getModel();
+			model.addRow(new Object[] { t.getWordId(), t.getFrequency(), t.getWord() });
+		}
+		table.setModel(model);
+		scrollPane.setViewportView(table);
+
+	}
+	public SecondFrame() {
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -77,25 +97,17 @@ public class SecondFrame extends JFrame implements Facade {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JScrollPane scrollPane = new JScrollPane();
+		 scrollPane = new JScrollPane();
 		scrollPane.setBounds(43, 68, 341, 185);
 		contentPane.add(scrollPane);
 
 		table = new JTable();
 
-		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Word ID", "Frequency", "Word" }) {
-			private static final long serialVersionUID = 1L;
-
-			@Override
-			public boolean isCellEditable(int row, int column) {
-
-				return false;
-			}
-		});
+		
 		table.addMouseListener(new MouseAdapter() {
 
 		});
-		scrollPane.setViewportView(table);
+		//scrollPane.setViewportView(table);
 
 		JLabel lblNewLabel = new JLabel("لفظ شامل کریں۔");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD, 12));
@@ -126,26 +138,8 @@ public class SecondFrame extends JFrame implements Facade {
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
 		btnNewButton_1.setBounds(143, 37, 85, 21);
 		contentPane.add(btnNewButton_1);
-		for (TransferObject t : alTO) {
-
-			DefaultTableModel model = (DefaultTableModel) table.getModel();
-			model.addRow(new Object[] { t.getWordId(), t.getFrequency(), t.getWord() });
-		}
+		
 	}
 
-//	@Override
-//	public TransferObject getWordUpadation(int Id, String UpadatedWord) {
-//		TransferObject obj = new TransferObject();
-//		obj.setWordId(Id);
-//		obj.setWord(UpadatedWord);
-//		return obj;
-//
-//	}
-//
-//	@Override
-//	public TransferObject getWordDeletion(int Id) {
-//		TransferObject obj = new TransferObject();
-//		obj.setWordId(Id);
-//		return obj;
-//	}
+
 }
