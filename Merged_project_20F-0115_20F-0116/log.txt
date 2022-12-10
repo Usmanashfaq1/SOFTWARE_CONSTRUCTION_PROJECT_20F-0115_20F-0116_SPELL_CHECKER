@@ -1,0 +1,12 @@
+Dec 10, 2022 8:38:17 PM main.MainClass main
+WARNING: Warning message
+Dec 10, 2022 8:38:17 PM main.MainClass main
+SEVERE: Server message
+Dec 10, 2022 8:56:19 PM main.MainClass main
+WARNING: Warning message
+Dec 10, 2022 8:56:19 PM main.MainClass main
+SEVERE: Server message
+Dec 10, 2022 8:56:38 PM main.MainClass main
+WARNING: Warning message
+Dec 10, 2022 8:56:38 PM main.MainClass main
+SEVERE: Server message
