@@ -1,0 +1,84 @@
+Dec 10, 2022 8:38:17 PM main.MainClass main
+WARNING: Warning message
+Dec 10, 2022 8:38:17 PM main.MainClass main
+SEVERE: Server message
+Dec 10, 2022 8:56:19 PM main.MainClass main
+WARNING: Warning message
+Dec 10, 2022 8:56:19 PM main.MainClass main
+SEVERE: Server message
+Dec 10, 2022 8:56:38 PM main.MainClass main
+WARNING: Warning message
+Dec 10, 2022 8:56:38 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 5:53:19 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 5:53:19 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 7:32:22 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 7:32:22 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 7:32:39 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 7:32:40 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 7:45:31 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 7:45:32 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 7:45:52 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 7:45:52 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 9:54:35 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 9:54:36 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:02:17 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:02:17 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:02:47 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:02:47 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:07:06 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:07:06 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:07:21 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:07:21 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:13:24 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:13:24 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:15:11 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:15:11 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:16:09 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:16:09 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:19:02 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:19:02 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:19:49 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:19:49 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:21:03 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:21:03 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:21:52 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:21:52 PM main.MainClass main
+SEVERE: Server message
+Dec 11, 2022 10:21:59 PM main.MainClass main
+WARNING: Warning message
+Dec 11, 2022 10:22:00 PM main.MainClass main
+SEVERE: Server message
