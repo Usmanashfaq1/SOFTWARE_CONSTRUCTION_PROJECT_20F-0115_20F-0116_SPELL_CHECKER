@@ -162,3 +162,27 @@ Dec 31, 2022 9:02:12 PM main.MainClass main
 WARNING: Warning message
 Dec 31, 2022 9:02:12 PM main.MainClass main
 SEVERE: Server message
+Jan 01, 2023 11:16:45 PM main.MainClass main
+WARNING: Warning message
+Jan 01, 2023 11:16:46 PM main.MainClass main
+SEVERE: Server message
+Jan 02, 2023 12:03:57 AM main.MainClass main
+WARNING: Warning message
+Jan 02, 2023 12:03:57 AM main.MainClass main
+SEVERE: Server message
+Jan 02, 2023 12:04:06 AM main.MainClass main
+WARNING: Warning message
+Jan 02, 2023 12:04:06 AM main.MainClass main
+SEVERE: Server message
+Jan 02, 2023 12:04:44 AM main.MainClass main
+WARNING: Warning message
+Jan 02, 2023 12:04:44 AM main.MainClass main
+SEVERE: Server message
+Jan 02, 2023 11:44:27 AM main.MainClass main
+WARNING: Warning message
+Jan 02, 2023 11:44:27 AM main.MainClass main
+SEVERE: Server message
+Jan 02, 2023 11:46:22 AM main.MainClass main
+WARNING: Warning message
+Jan 02, 2023 11:46:22 AM main.MainClass main
+SEVERE: Server message

@@ -8,7 +8,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 
 import businessLogicLayer.Model;
-import controller.Controller;
+//import controller.Controller;
+import presentationLayer.*;
 import presentationLayer.MainScreen;
 import presentationLayer.ViewTypos;
 
