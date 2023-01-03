@@ -45,13 +45,13 @@ import dataAccessLayer.*;
  * @author maste
  *
  */
-public class Model {
+public class BusinessLogicLayer {
 	/**
 	 * 
 	 * @param path
 	 */
 	private ArrayList<WordFrequency> wordArrayList = new ArrayList<WordFrequency>();
-	private DataBaseLayer dataAccesslayerObject = new DataBaseLayer();
+	private DataAccessLayer dataAccesslayerObject = new DataAccessLayer();
 	private ArrayList<WordId> wordParentIdList = new ArrayList<WordId>();
 	private ArrayList<String> wordListLocal = new ArrayList<String>();
 	private int parentId = 0;
@@ -140,7 +140,7 @@ public class Model {
 
 				try {
 					Node sectionNode = sectionNodeList.item(i);
-
+					
 					if (sectionNode.getNodeType() == Node.ELEMENT_NODE) {
 
 						Element sectionElement = (Element) sectionNode;
@@ -392,7 +392,7 @@ public class Model {
 
 	public void accessDatabase() {
 
-		DataBaseLayer dataBaseLayerObject = new DataBaseLayer();
+		DataAccessLayer dataBaseLayerObject = new DataAccessLayer();
 		// Connection abc=new Connection();
 
 		dataBaseLayerObject.textFileGeneration();

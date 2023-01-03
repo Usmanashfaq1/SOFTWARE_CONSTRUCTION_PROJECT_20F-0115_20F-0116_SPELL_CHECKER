@@ -25,7 +25,7 @@ public class MainClass {
 		Log log = new Log("log.txt");
 		// TODO Auto-generated method stub
 		log.logger.setLevel(Level.WARNING);
-		Model model = new Model();
+		BusinessLogicLayer model = new BusinessLogicLayer();
 		MainScreen view = new MainScreen();
 		view.setVisible(true);
 		Controller controller = new Controller(model, view);

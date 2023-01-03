@@ -186,3 +186,27 @@ Jan 02, 2023 11:46:22 AM main.MainClass main
 WARNING: Warning message
 Jan 02, 2023 11:46:22 AM main.MainClass main
 SEVERE: Server message
+Jan 03, 2023 9:19:53 PM dataAccessLayer.DataBaseLayer manipulateWord
+INFO: Info message: Deleted word in word table
+Jan 03, 2023 9:19:53 PM dataAccessLayer.DataBaseLayer manipulateWord
+INFO: Info message: Updated word in word table
+Jan 03, 2023 9:33:12 PM dataAccessLayer.DataBaseLayer manipulateWord
+INFO: Info message: Deleted word in word table
+Jan 03, 2023 9:33:12 PM dataAccessLayer.DataBaseLayer manipulateWord
+INFO: Info message: Updated word in word table
+Jan 03, 2023 9:33:20 PM dataAccessLayer.DataBaseLayer manipulateWord
+INFO: Info message: Deleted word in word table
+Jan 03, 2023 9:33:20 PM dataAccessLayer.DataBaseLayer manipulateWord
+INFO: Info message: Updated word in word table
+Jan 03, 2023 9:40:01 PM dataAccessLayer.DataAccessLayer manipulateWord
+INFO: Info message: Deleted word in word table
+Jan 03, 2023 9:40:01 PM dataAccessLayer.DataAccessLayer manipulateWord
+INFO: Info message: Updated word in word table
+Jan 03, 2023 9:40:15 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 9:40:16 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 9:43:04 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 9:43:04 PM main.MainClass main
+SEVERE: Server message

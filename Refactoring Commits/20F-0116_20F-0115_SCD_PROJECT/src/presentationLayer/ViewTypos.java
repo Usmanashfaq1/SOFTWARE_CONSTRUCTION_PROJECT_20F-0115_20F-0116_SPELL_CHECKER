@@ -33,7 +33,7 @@ public class ViewTypos extends JFrame {
 		return contentPane;
 	}
 
-	public static JTextField getWord_input() {
+	public static JTextField getWordInput() {
 		return inputWord;
 	}
 
@@ -61,22 +61,6 @@ public class ViewTypos extends JFrame {
 	/**
 	 * Launch the application.
 	 */
-//	//main start
-//		public static void main(String[] args) 
-//		{
-//			EventQueue.invokeLater(new Runnable() {
-//				public void run() 
-//				{
-//					try {
-//						View frame = new View();
-//						frame.setVisible(true);
-//					} catch (Exception e) {
-//						e.printStackTrace();
-//					}
-//				}
-//			});
-//		}
-//	// main end
 
 	/**
 	 * Create the frame.

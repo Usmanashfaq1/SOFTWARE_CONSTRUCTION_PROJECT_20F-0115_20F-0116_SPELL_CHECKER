@@ -1,17 +1,25 @@
 package projectTestCase;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import businessLogicLayer.Model;
-import dataAccessLayer.DataBaseLayer;
+import com.mysql.cj.x.protobuf.MysqlxCrud.Delete;
+
+import businessLogicLayer.BusinessLogicLayer;
+import dataAccessLayer.DataAccessLayer;
 
 class ProjectTestCases {
 
-	private DataBaseLayer d = new DataBaseLayer();
-	private Model m = new Model();
+	private DataAccessLayer dataBaseLayerObject = new DataAccessLayer();
+	private BusinessLogicLayer modelObject = new BusinessLogicLayer();
 
-
+	@Test
+	void test()
+	{
+		fail("Not terminted yet");
+	}
 
 	@Test
 	/**
@@ -19,7 +27,7 @@ class ProjectTestCases {
 	 * location and file didn't get read
 	 */
 	void testCorrectPathExists() {
-		Assertions.assertTrue(m.readXmlFile("C:\\Users\\maste\\Documents\\Custom Office Templates"));
+		Assertions.assertTrue(modelObject.readXmlFile("C:\\Users\\maste\\Documents\\Custom Office Templates"));
 	}
 
 	@Test
@@ -27,7 +35,7 @@ class ProjectTestCases {
 	 * it will return false the because null values are not allowed
 	 */
 	void testFileDataInsertedInDataBase() {
-		Assertions.assertTrue(d.insertIntoDataBase("", "", ""));
+		Assertions.assertTrue(dataBaseLayerObject.insertIntoDataBase("", "", ""));
 	}
 
 	@Test
@@ -35,7 +43,24 @@ class ProjectTestCases {
 	 * it will return false the because if word is present its frequency should be 1
 	 */
 	void testWordInsertedInDataBase() {
-		Assertions.assertFalse(d.insertIntoDataBase("ٹیسٹنگ", 0));
+		Assertions.assertFalse(dataBaseLayerObject.insertIntoDataBase("ٹیسٹنگ", 0));
+	}
+	
+	
+	@Test
+	/**
+	 * it will return true the because if word is present its deleted
+	 */
+	void testDelete() {
+		Assertions.assertTrue(dataBaseLayerObject.manipulateWord(5));
+	}
+	
+	@Test
+	/**
+	 * it will return true the because if word is present its updated
+	 */
+	void testUpdate() {
+		Assertions.assertTrue(dataBaseLayerObject.manipulateWord(5,"تازہ کاری"));
 	}
 
 }

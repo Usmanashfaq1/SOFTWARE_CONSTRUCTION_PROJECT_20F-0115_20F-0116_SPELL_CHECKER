@@ -29,7 +29,7 @@ import main.Log;
  * @author maste
  *
  */
-public class DataBaseLayer implements Facade {
+public class DataAccessLayer implements Facade {
 	private Statement state;
 	private ArrayList<String> stringArrayList = new ArrayList<String>();
 
@@ -139,7 +139,7 @@ public class DataBaseLayer implements Facade {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
+		assert(frequency > 0);
 		if (frequency != 0) {
 			try {
 				state.executeUpdate("insert into wordtable ( frequency, word ) VALUES( '" + frequency + "', '" + word + "');");
@@ -175,7 +175,7 @@ public class DataBaseLayer implements Facade {
 	}
 
 	@Override
-	public void manipulateWord(int id, String updatedWord) {
+	public boolean manipulateWord(int id, String updatedWord) {
 		Connection connection = Singleton.SqlConnection();
 		try {
 			state = connection.createStatement();
@@ -187,14 +187,15 @@ public class DataBaseLayer implements Facade {
 			state.executeUpdate("update wordtable set word =  '" + updatedWord + "'  where wid = '" + id + "';");
 			Log log = new Log("log.txt");
 			log.logger.info("Info message: Updated word in word table");
+			return true;
 		} catch (Exception e) {
 			System.out.println("Unable to Update in word table of dataBase Project_of_scd in Sql");
 		}
-
+		return false;
 	}
 
 	@Override
-	public void manipulateWord(int id) {
+	public boolean manipulateWord(int id) {
 		Connection connection = Singleton.SqlConnection();
 		try {
 			state = connection.createStatement();
@@ -206,16 +207,17 @@ public class DataBaseLayer implements Facade {
 			state.executeUpdate("Delete from wordtable where wid = '" + id + "';");
 			Log log = new Log("log.txt");
 			log.logger.info("Info message: Deleted word in word table");
+			return true;
 		} catch (Exception e) {
 			System.out.println("Unable to delete in word table of dataBase Project_of_scd in Sql");
 		}
-
+		return false;
 	}
 /////////////////////////////////////////////////////////
 
 	/// 20f-0115
 	@Override
-	public void textFileGeneration() {
+	public boolean textFileGeneration() {
 		Connection connection = Singleton.SqlConnection();
 		try {
 			state = connection.createStatement();
@@ -284,7 +286,7 @@ public class DataBaseLayer implements Facade {
 			e.printStackTrace();
 		}
 		//
-
+		return true;
 	}
 	///////////////////////////////////////
 

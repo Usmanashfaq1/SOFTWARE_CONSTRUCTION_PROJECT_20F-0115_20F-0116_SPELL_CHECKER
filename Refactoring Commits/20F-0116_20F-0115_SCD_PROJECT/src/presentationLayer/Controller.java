@@ -35,7 +35,7 @@ public class Controller {
 		this.transferObject = obj;
 	}
 
-	private Model model;
+	private BusinessLogicLayer model;
 	private MainScreen mainScreenView;
 
 	/**
@@ -43,7 +43,7 @@ public class Controller {
 	 * @param model
 	 * @param view
 	 */
-	public Controller(Model model, MainScreen mainScreenView) {
+	public Controller(BusinessLogicLayer model, MainScreen mainScreenView) {
 		this.model = model;
 		this.mainScreenView = mainScreenView;
 	}
@@ -245,6 +245,7 @@ public class Controller {
 					// for each loop
 					for (String word : list) {
 						int distance = model.editDistanceValue(splitSentence[i], word);
+						
 						if (distance <= valueLimit) {
 							suggestion.add(word);
 						}
@@ -252,7 +253,7 @@ public class Controller {
 					// print
 
 					// spell checker here
-
+					assert(suggestion.size() > 0);
 					if (suggestion.size() > 0) {
 						DefaultTableModel model = (DefaultTableModel) viewTypos.table.getModel();
 						for (String word : suggestion) {
