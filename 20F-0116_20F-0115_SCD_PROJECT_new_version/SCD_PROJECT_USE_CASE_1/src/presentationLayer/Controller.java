@@ -101,7 +101,8 @@ public class Controller {
 				secondFrame.gettTextField().setText("");
 
 			} else {
-				int id = Integer.parseInt(secondFrame.getTableModel().getValueAt(secondFrame.getIndexRowSelected(), 0).toString());
+				int id = Integer.parseInt(
+						secondFrame.getTableModel().getValueAt(secondFrame.getIndexRowSelected(), 0).toString());
 				if (!(secondFrame.gettTextField().getText().equals(""))) {
 
 					String word = secondFrame.getTextField();
@@ -111,21 +112,16 @@ public class Controller {
 					transferObject.setWord(word);
 					model.getValueofUpdatedWord(transferObject);
 					secondFrame.gettTextField().setText("");
-					try  
-					{         
-					File file= new File("word.txt");           //file to be delete  
-					if(file.delete())                      //returns Boolean value  
-					{  
-					System.out.println(file.getName() + " deleted");   //getting and printing the file name  
-					}  
-					else  
-					{  
-					System.out.println("failed");  
-					}  
-					}  
-					catch(Exception e1)  
-					{  
-					e1.printStackTrace();  
+					try {
+						File file = new File("word.txt"); // file to be delete
+						if (file.delete()) // returns Boolean value
+						{
+							System.out.println(file.getName() + " deleted"); // getting and printing the file name
+						} else {
+							System.out.println("failed");
+						}
+					} catch (Exception e1) {
+						e1.printStackTrace();
 					}
 					secondFrame.setTableData(model.getListOfWords());
 
@@ -145,26 +141,22 @@ public class Controller {
 
 			} else {
 				if (!(secondFrame.gettTextField().getText().equals(""))) {
-					int id = Integer.parseInt(secondFrame.getTableModel().getValueAt(secondFrame.getIndexRowSelected(), 0).toString());
+					int id = Integer.parseInt(
+							secondFrame.getTableModel().getValueAt(secondFrame.getIndexRowSelected(), 0).toString());
 					transferObject.setWordId(id);
 					System.out.println("Deleting Id is : " + transferObject.getWordId());
 					model.deleteWordIdForDb(transferObject);
 					secondFrame.gettTextField().setText("");
-					try  
-					{         
-					File file= new File("word.txt");           //file to be delete  
-					if(file.delete())                      //returns Boolean value  
-					{  
-					System.out.println(file.getName() + " deleted");   //getting and printing the file name  
-					}  
-					else  
-					{  
-					System.out.println("failed");  
-					}  
-					}  
-					catch(Exception e1)  
-					{  
-					e1.printStackTrace();  
+					try {
+						File file = new File("word.txt"); // file to be delete
+						if (file.delete()) // returns Boolean value
+						{
+							System.out.println(file.getName() + " deleted"); // getting and printing the file name
+						} else {
+							System.out.println("failed");
+						}
+					} catch (Exception e1) {
+						e1.printStackTrace();
 					}
 					secondFrame.setTableData(model.getListOfWords());
 				} else {
@@ -174,11 +166,11 @@ public class Controller {
 		});
 		secondFrame.setIndexRowSelected(-1);
 	}
+
 	/**
-	 *  Applied Extract function here
+	 * Applied Extract function
 	 */
-	public void chooseFile()
-	{
+	public void chooseFile() {
 		JFileChooser fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 		int response = fileChooser.showOpenDialog(null);
@@ -186,18 +178,19 @@ public class Controller {
 			File file = new File(fileChooser.getSelectedFile().getAbsoluteFile(), "");
 			String path = file.toString();
 			model.openDirectory(path);
-			
+
 		}
 	}
+
+
 	public void firstScreen() {
 		View view = new View();
 		view.setVisible(true);
 		view.getBrowseButton().addActionListener(e -> {
 			chooseFile();
-
 		});
 	}
-	
+
 	public void checkTypos() {
 		ViewTypos viewTypos = new ViewTypos();
 		viewTypos.setVisible(true);
@@ -250,15 +243,15 @@ public class Controller {
 					// for each loop
 					for (String word : list) {
 						int distance = model.editDistanceValue(splitSentence[i], word);
-						
+
 						if (distance <= valueLimit) {
 							suggestion.add(word);
 						}
 					}
 					// print
 
-					 //spell checker here
-					assert(suggestion.size() > 0);
+					// spell checker here
+					assert (suggestion.size() > 0);
 					if (suggestion.size() > 0) {
 						DefaultTableModel model = (DefaultTableModel) viewTypos.table.getModel();
 						for (String word : suggestion) {
@@ -276,7 +269,7 @@ public class Controller {
 			//
 
 		});
-		
+
 //		view.getBtnNewButton().addActionListener(e ->
 //		{
 		// table mouse click

@@ -218,3 +218,59 @@ Jan 03, 2023 10:12:40 PM main.MainClass main
 WARNING: Warning message
 Jan 03, 2023 10:12:41 PM main.MainClass main
 SEVERE: Server message
+Jan 03, 2023 10:21:51 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:21:51 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:22:08 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:22:08 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:23:50 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:23:50 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:24:45 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:24:45 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:28:40 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:28:40 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:30:15 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:30:15 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:30:44 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:30:44 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:31:41 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:31:41 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:32:17 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:32:17 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:32:56 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:32:56 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:34:16 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:34:16 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:34:49 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:34:49 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:36:49 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:36:49 PM main.MainClass main
+SEVERE: Server message
+Jan 03, 2023 10:37:36 PM main.MainClass main
+WARNING: Warning message
+Jan 03, 2023 10:37:36 PM main.MainClass main
+SEVERE: Server message
