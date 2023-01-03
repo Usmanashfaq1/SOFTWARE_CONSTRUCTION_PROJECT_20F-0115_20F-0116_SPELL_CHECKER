@@ -11,6 +11,7 @@ public interface Facade {
 	public boolean manipulateWord(int id , String updatedWord);
 	public boolean manipulateWord(int id);
 	public boolean textFileGeneration();
+	public void textFile();
 	public ArrayList<String> maintainWordIDWithFile();
 	public ArrayList<TransferObject> getWordForViewingInTable();
 }

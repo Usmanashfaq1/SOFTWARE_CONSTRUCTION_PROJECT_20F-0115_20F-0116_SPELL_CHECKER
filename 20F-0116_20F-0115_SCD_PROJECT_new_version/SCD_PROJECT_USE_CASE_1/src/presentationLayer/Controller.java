@@ -174,25 +174,29 @@ public class Controller {
 		});
 		secondFrame.setIndexRowSelected(-1);
 	}
-
+	/**
+	 *  Applied Extract function here
+	 */
+	public void chooseFile()
+	{
+		JFileChooser fileChooser = new JFileChooser();
+		fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+		int response = fileChooser.showOpenDialog(null);
+		if (response == JFileChooser.APPROVE_OPTION) {
+			File file = new File(fileChooser.getSelectedFile().getAbsoluteFile(), "");
+			String path = file.toString();
+			model.openDirectory(path);
+			
+		}
+	}
 	public void firstScreen() {
 		View view = new View();
 		view.setVisible(true);
 		view.getBrowseButton().addActionListener(e -> {
+			chooseFile();
 
-			JFileChooser fileChooser = new JFileChooser();
-			fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			int response = fileChooser.showOpenDialog(null);
-			if (response == JFileChooser.APPROVE_OPTION) {
-				File file = new File(fileChooser.getSelectedFile().getAbsoluteFile(), "");
-				String path = file.toString();
-				model.openDirectory(path);
-				// v.setVisible(false);
-				// view.setVisible(true);
-			}
 		});
 	}
-
 	public void checkTypos() {
 		ViewTypos viewTypos = new ViewTypos();
 		viewTypos.setVisible(true);
@@ -252,7 +256,7 @@ public class Controller {
 					}
 					// print
 
-					// spell checker here
+					 //spell checker here
 					assert(suggestion.size() > 0);
 					if (suggestion.size() > 0) {
 						DefaultTableModel model = (DefaultTableModel) viewTypos.table.getModel();
@@ -271,7 +275,7 @@ public class Controller {
 			//
 
 		});
-
+		
 //		view.getBtnNewButton().addActionListener(e ->
 //		{
 		// table mouse click

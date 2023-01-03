@@ -392,10 +392,12 @@ public class BusinessLogicLayer {
 
 	public void accessDatabase() {
 
-		DataAccessLayer dataBaseLayerObject = new DataAccessLayer();
+		//DataAccessLayer dataBaseLayerObject = new DataAccessLayer();
 		// Connection abc=new Connection();
-
-		dataBaseLayerObject.textFileGeneration();
+		/**
+		 * Added inline function refactoring
+		 */
+		dataAccesslayerObject.textFileGeneration();
 
 	}
 

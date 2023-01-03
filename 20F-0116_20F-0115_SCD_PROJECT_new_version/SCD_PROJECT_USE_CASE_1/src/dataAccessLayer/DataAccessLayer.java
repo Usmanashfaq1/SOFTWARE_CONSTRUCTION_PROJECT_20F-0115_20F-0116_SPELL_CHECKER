@@ -214,8 +214,12 @@ public class DataAccessLayer implements Facade {
 		return false;
 	}
 /////////////////////////////////////////////////////////
-
 	/// 20f-0115
+	@Override
+	public void textFile()
+	{
+		
+	}
 	@Override
 	public boolean textFileGeneration() {
 		Connection connection = Singleton.SqlConnection();
