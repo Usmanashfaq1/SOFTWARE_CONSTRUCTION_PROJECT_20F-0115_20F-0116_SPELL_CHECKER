@@ -73,10 +73,16 @@ public class BusinessLogicLayer {
 	}
 
 	public ArrayList<TransferObject> getListOfWords() {
+		/**
+		 * inline Function Refactoring
+		 */
 		return dataAccesslayerObject.getWordForViewingInTable();
 	}
 
 	public void getValueofUpdatedWord(TransferObject transferObject) {
+		/**
+		 * inline Function Refactoring
+		 */
 		dataAccesslayerObject.manipulateWord(transferObject.getWordId(), transferObject.getWord());
 
 	}

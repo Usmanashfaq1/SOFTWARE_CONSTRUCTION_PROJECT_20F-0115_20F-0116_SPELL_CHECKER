@@ -197,6 +197,7 @@ public class Controller {
 
 		});
 	}
+	
 	public void checkTypos() {
 		ViewTypos viewTypos = new ViewTypos();
 		viewTypos.setVisible(true);
